@@ -54,6 +54,16 @@ function TextBox() {
         text={text}
         onChange={onChange}
       ></TextAreaBlock>
+      {/* <ColorContext.Consumer>
+        {(value) => (
+          <TextAreaBlock
+            color={value.color}
+            ref={textarea}
+            text={text}
+            onChange={onChange}
+          ></TextAreaBlock>
+        )}
+      </ColorContext.Consumer> */}
     </>
   );
 }
@@ -63,9 +73,12 @@ const TextAreaBlock = styled.textarea`
   outline: none;
   overflow: auto;
   resize: none;
-  min-width: 400px;
   height: 100%;
   border: 1px solid black;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: ${(props) => props.color || "blue"};
 `;
 
 export default TextBox;
