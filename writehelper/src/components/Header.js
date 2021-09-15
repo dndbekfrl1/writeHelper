@@ -2,9 +2,9 @@ import react from "react";
 import styled from "styled-components";
 function Header() {
   return (
-    <HeaderBlock>
-      <div>헤더</div>
-      <button>btn</button>
+    <HeaderBlock className="header">
+      <div className="title">헤더</div>
+      <button className="export_btn">btn</button>
     </HeaderBlock>
   );
 }

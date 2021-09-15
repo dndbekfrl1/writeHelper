@@ -11,7 +11,7 @@ function ThemeChange() {
 
   return (
     <>
-      <ThemeChangeButton onClick={onClick} />
+      <ThemeChangeButton className="toggle_btn" onClick={onClick} />
     </>
   );
 }
@@ -23,7 +23,6 @@ const ThemeChangeButton = styled.div`
   width: 100px;
   height: 100px;
   cursor: pointer;
-  background-color: black;
   border-radius: 100%;
 `;
 

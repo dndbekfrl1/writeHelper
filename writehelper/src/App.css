@@ -3,7 +3,10 @@
 }
 
 [app-theme="dark"] {
-  --background-color: blue;
+  --background-color: #292929;
+  --text-background-color: #3f3f3f;
+  --text-color: #e7e7e7;
+  --gray: #454545;
 }
 
 body,
@@ -31,12 +34,26 @@ html {
   align-items: center;
   width: 100%;
   background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .wrapper {
   position: relative;
   width: 600px;
   height: 90%;
+}
+.text_box {
+  background-color: var(--text-background-color);
+  color: var(--text-color);
+}
+
+.toggle_btn {
+  background-color: var(--gray);
+}
+.export_btn {
+  border: 1px solid var(--gray);
+  background-color: transparent;
+  color: var(--text-color);
 }
 
 code {

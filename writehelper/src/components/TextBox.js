@@ -50,6 +50,7 @@ function TextBox() {
   return (
     <>
       <TextAreaBlock
+        className="text_box"
         ref={textarea}
         text={text}
         onChange={onChange}
@@ -74,11 +75,9 @@ const TextAreaBlock = styled.textarea`
   overflow: auto;
   resize: none;
   height: 100%;
-  border: 1px solid black;
   width: 100%;
+  border-radius: 8px;
   margin: 0;
-  padding: 0;
-  background-color: ${(props) => props.color || "blue"};
 `;
 
 export default TextBox;
