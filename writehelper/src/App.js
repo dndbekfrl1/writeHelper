@@ -1,19 +1,20 @@
 import Main from "./components/Main";
 import "./App.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ThemeContext } from "./theme";
+import { AlertContext } from "./alert";
 
 function App() {
   const [theme, setTheme] = useState("light");
 
-  console.log("theme", theme);
+  const [alert, setAlert] = useState(50);
+
+  const Appdiv = useRef();
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className="App" app-theme={theme}>
-        <div className="wrapper">
-          <Main />
-        </div>
+      <div className="App" app-theme={theme} ref={Appdiv}>
+        <Main Appdiv={Appdiv} />
       </div>
     </ThemeContext.Provider>
   );

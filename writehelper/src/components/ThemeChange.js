@@ -17,11 +17,8 @@ function ThemeChange() {
 }
 
 const ThemeChangeButton = styled.div`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100px;
-  height: 100px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   border-radius: 100%;
 `;
