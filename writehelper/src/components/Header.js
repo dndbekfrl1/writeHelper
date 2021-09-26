@@ -8,13 +8,12 @@ function saveToFile(content, filename, filetype) {
 
   a.href = URL.createObjectURL(file);
   a.download = filename;
-  a.click();
+  // a.click();
 
   URL.revokeObjectURL(a.href);
 }
 
-function Header({ text }) {
-  const [open, setOpen] = useState(false);
+function Header({ text, open, setOpen }) {
   const onClick = () => {
     setOpen(!open);
   };
@@ -22,17 +21,17 @@ function Header({ text }) {
   return (
     <>
       {open && (
-        <AlertBlock>
+        <DialogBlock className="">
           <div className="dialogWrapper">
             <div className="dialog">
               <div>다운로드 되었습니다.</div>
               <button onClick={() => onClick()}>확인</button>
             </div>
           </div>
-        </AlertBlock>
+        </DialogBlock>
       )}
       <HeaderBlock className="header">
-        <div className="title">당신의 글쓰기</div>
+        <div className="title">당신의 xx 쓰기</div>
         <div className="util">
           <button
             className="export_btn"
@@ -50,35 +49,16 @@ function Header({ text }) {
   );
 }
 
-const AlertBlock = styled.div`
+const DialogBlock = styled.div`
   width: 100%;
   height: 100%;
   z-index: 999;
   position: absolute;
   left: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
-
-  .dialogWrapper {
-    position: relative;
-    min-width: 250px;
-  }
-  .dialog {
-    all: unset;
-    top: 20%;
-    left: 0;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 26px;
-    width: 100%;
-    min-height: 120px;
-  }
 `;
 
 const HeaderBlock = styled.header`

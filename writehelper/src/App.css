@@ -76,6 +76,26 @@ html {
   box-shadow: 5px 5px 5px var(--dark-shadow), -5px -5px 5px var(--light-shadow);
 }
 
+.dialogWrapper {
+  position: relative;
+  min-width: 250px;
+}
+.dialog {
+  all: unset;
+  top: 20%;
+  left: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--background-color);
+  box-shadow: 5px 5px 5px var(--dark-shadow), -5px -5px 5px var(--light-shadow);
+  border-radius: 26px;
+  width: 100%;
+  min-height: 120px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

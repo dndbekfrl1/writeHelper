@@ -1,8 +1,6 @@
 import react from "react";
 import { useState, useRef, useEffect } from "react";
-import styled from "styled-components";
 import TextBox from "./TextBox";
-import ThemeChange from "./ThemeChange";
 import Header from "./Header";
 
 let to = 4;
@@ -11,12 +9,13 @@ let timerId;
 let alertDegree = 10;
 
 function Main() {
-  const [text, setText] = useState(null);
-  const textarea = useRef();
-  const flag = false;
+  const [open, setOpen] = useState(false); // dialog open
+  const [text, setText] = useState(null); // textarea text
+  const textarea = useRef(); // textarea
 
   useEffect(() => {
     const setTimer = () => {
+      //timer initial
       if (typeof timerId === "number") {
         console.log("new input", "curID:", timerId);
         cur = 0;
@@ -26,14 +25,17 @@ function Main() {
         // Appdiv.current.style.backgroundColor = "white";
       }
       timerId = setTimeout(function tick() {
+        // if file is being saving, pause timer
+        if (open) {
+          cur = 0;
+        }
+
         if (cur < to) {
           if (typeof timerId === "number") {
             console.log(timerId, cur, to);
             // Appdiv.current.style.backgroundColor = `rgb(253, 184, 39,${alertDegree})`;
             alertDegree *= 2;
-            if (flag) {
-              timerId = setTimeout(tick, 1000);
-            }
+            timerId = setTimeout(tick, 1000);
           }
         }
         cur += 1;
@@ -53,11 +55,11 @@ function Main() {
     return () => {
       clearTimeout(timer);
     };
-  }, [text]);
+  }, [text, open]);
 
   return (
     <div className="wrapper">
-      <Header text={text} />
+      <Header text={text} open={open} setOpen={setOpen} />
       <TextBox text={text} setText={setText} textarea={textarea} />
     </div>
   );
