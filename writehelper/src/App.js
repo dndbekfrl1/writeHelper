@@ -2,12 +2,9 @@ import Main from "./components/Main";
 import "./App.css";
 import { useState, useRef } from "react";
 import { ThemeContext } from "./theme";
-import { AlertContext } from "./alert";
 
 function App() {
   const [theme, setTheme] = useState("light");
-
-  const [alert, setAlert] = useState(50);
 
   const Appdiv = useRef();
 

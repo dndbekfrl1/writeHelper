@@ -8,7 +8,7 @@ function saveToFile(content, filename, filetype) {
 
   a.href = URL.createObjectURL(file);
   a.download = filename;
-  // a.click();
+  a.click();
 
   URL.revokeObjectURL(a.href);
 }
