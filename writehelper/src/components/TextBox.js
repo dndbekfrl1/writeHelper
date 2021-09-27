@@ -2,12 +2,10 @@ import { current } from "immer";
 import react, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
-function TextBox({ text, setText, textarea }) {
-  const [count, setCount] = useState(0);
+function TextBox({ text, setText, textarea, count, setCount }) {
   const onChange = (e) => {
     setText(e.target.value);
     setCount(count + 1);
-    console.log(count);
   };
 
   const onKeyUp = () => {};

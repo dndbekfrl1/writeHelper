@@ -13,6 +13,7 @@ let timerId;
 function Main() {
   const [open, setOpen] = useState(false); // dialog open
   const [text, setText] = useState(null); // textarea text
+  const [count, setCount] = useState(0); //count text
   const [alertDegree, setAlertDegree] = useState(0); // alert backgrond color change
   const textarea = useRef(); // textarea
 
@@ -44,6 +45,7 @@ function Main() {
         if (cur === to) {
           // console.log(timerId, "time out");
           textarea.current.value = "";
+          setCount(0);
         }
       }, 1000);
     };
@@ -61,7 +63,13 @@ function Main() {
     <div className="main">
       <div className="wrapper">
         <Header text={text} open={open} setOpen={setOpen} />
-        <TextBox text={text} setText={setText} textarea={textarea} />
+        <TextBox
+          text={text}
+          setText={setText}
+          textarea={textarea}
+          count={count}
+          setCount={setCount}
+        />
       </div>
       <AlertBlockLeft alertDegree={alertDegree} />
       <AlertBlockRight alertDegree={alertDegree} />
