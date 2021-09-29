@@ -38,6 +38,16 @@ html {
   width: 100%;
 }
 
+button {
+  cursor: pointer;
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+  border-radius: 26px;
+  padding: 4px 12px;
+  border: none;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -104,8 +114,16 @@ textarea.dark::placeholder {
   color: var(--text-color);
   transition: color 0.4s ease-out;
 }
+.countDown {
+  background: var(--btn-color);
+  box-shadow: 5px 5px 5px var(--dark-shadow), -5px -5px 5px var(--light-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .toggle_btn {
+  cursor: pointer;
   background: var(--btn-color);
   box-shadow: 5px 5px 5px var(--dark-shadow), -5px -5px 5px var(--light-shadow);
   display: flex;
@@ -130,6 +148,7 @@ svg {
 }
 
 .export_btn {
+  cursor: pointer;
   border: none;
   border-radius: 26px;
 }
