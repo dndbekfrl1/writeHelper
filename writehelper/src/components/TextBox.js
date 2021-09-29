@@ -20,7 +20,6 @@ function TextBox({ theme, text, setText, textarea, count, setCount }) {
         placeholder="5초간 입력이 없으면 글이 사라집니다."
         onKeyUp={onKeyUp}
       ></TextAreaBlock>
-      <span>{count}</span>
     </Block>
   );
 }
