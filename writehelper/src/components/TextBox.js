@@ -2,7 +2,7 @@ import { current } from "immer";
 import react, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
-function TextBox({ text, setText, textarea, count, setCount }) {
+function TextBox({ theme, text, setText, textarea, count, setCount }) {
   const onChange = (e) => {
     setText(e.target.value);
     setCount(count + 1);
@@ -13,7 +13,7 @@ function TextBox({ text, setText, textarea, count, setCount }) {
   return (
     <Block>
       <TextAreaBlock
-        className="text_box"
+        className={"text_box" + " " + theme}
         ref={textarea}
         text={text}
         onChange={onChange}

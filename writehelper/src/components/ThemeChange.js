@@ -1,7 +1,6 @@
 import react, { useContext } from "react";
 import styled from "styled-components";
 import { ThemeContext } from "../theme";
-import icon from "../assets/icon.svg";
 
 function ThemeChange() {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -12,7 +11,10 @@ function ThemeChange() {
 
   return (
     <>
-      <ThemeChangeButton className="toggle_btn" onClick={onClick}>
+      <ThemeChangeButton
+        className={"toggle_btn" + " " + theme}
+        onClick={onClick}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="22"

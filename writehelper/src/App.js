@@ -1,17 +1,14 @@
 import Main from "./components/Main";
 import "./App.css";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { ThemeContext } from "./theme";
 
 function App() {
   const [theme, setTheme] = useState("light");
-
-  const Appdiv = useRef();
-
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className="App" app-theme={theme} ref={Appdiv}>
-        <Main Appdiv={Appdiv} />
+      <div className={"App" + " " + theme} app-theme={theme}>
+        <Main />
       </div>
     </ThemeContext.Provider>
   );

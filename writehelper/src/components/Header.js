@@ -1,7 +1,7 @@
-import react, { createElement, useState } from "react";
+import react, { createElement, useState, useContext } from "react";
 import styled from "styled-components";
 import ThemeChange from "./ThemeChange";
-
+import { ThemeContext } from "styled-components";
 function saveToFile(content, filename, filetype) {
   const a = document.createElement("a");
   const file = new Blob([content], { type: filetype });
@@ -13,7 +13,7 @@ function saveToFile(content, filename, filetype) {
   URL.revokeObjectURL(a.href);
 }
 
-function Header({ text, open, setOpen }) {
+function Header({ theme, text, open, setOpen }) {
   const onClick = () => {
     setOpen(!open);
   };
@@ -34,7 +34,7 @@ function Header({ text, open, setOpen }) {
         <div className="title">당신의 xx 쓰기</div>
         <div className="util">
           <button
-            className="export_btn"
+            className={"export_btn" + " " + theme}
             onClick={() => {
               onClick();
               saveToFile(text, "dddd.txt", "text/plain");
@@ -75,7 +75,6 @@ const HeaderBlock = styled.header`
     display: flex;
     align-items: flex-end;
   }
-
   .export_btn {
     cursor: pointer;
     line-height: 20px;

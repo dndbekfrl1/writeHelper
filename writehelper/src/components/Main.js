@@ -1,5 +1,6 @@
 import react from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
+import { ThemeContext } from "../theme";
 import TextBox from "./TextBox";
 import Header from "./Header";
 import styled, { css } from "styled-components";
@@ -11,6 +12,8 @@ let timerId;
 //TODO 키보드 입력도
 
 function Main() {
+  const { theme } = useContext(ThemeContext);
+
   const [open, setOpen] = useState(false); // dialog open
   const [text, setText] = useState(null); // textarea text
   const [count, setCount] = useState(0); //count text
@@ -21,7 +24,6 @@ function Main() {
     const setTimer = () => {
       //timer initial
       if (typeof timerId === "number") {
-        // console.log("new input", "curID:", timerId);
         cur = 0;
         clearTimeout(timerId);
         timerId = undefined;
@@ -35,7 +37,6 @@ function Main() {
 
         if (cur < to) {
           if (typeof timerId === "number") {
-            // console.log(timerId, cur, to);
             setAlertDegree(cur * 20);
             timerId = setTimeout(tick, 1000);
           }
@@ -43,7 +44,6 @@ function Main() {
         cur += 1;
 
         if (cur === to) {
-          // console.log(timerId, "time out");
           textarea.current.value = "";
           setCount(0);
         }
@@ -62,8 +62,9 @@ function Main() {
   return (
     <div className="main">
       <div className="wrapper">
-        <Header text={text} open={open} setOpen={setOpen} />
+        <Header theme={theme} text={text} open={open} setOpen={setOpen} />
         <TextBox
+          theme={theme}
           text={text}
           setText={setText}
           textarea={textarea}
@@ -83,14 +84,14 @@ const AlertBlockLeft = styled.div`
   width: 20%;
   left: 0;
 
-  background: ${(props) =>
+  /* background: ${(props) =>
     props.alertDegree
       ? css`linear-gradient(
     90deg,
     rgba(109, 127, 141, 0.9) 0%,
     rgba(0, 0, 0, 0) ${props.alertDegree}%
   )`
-      : css``};
+      : css``}; */
 `;
 
 const AlertBlockRight = styled.div`
@@ -99,14 +100,14 @@ const AlertBlockRight = styled.div`
   width: 20%;
   right: 0;
 
-  background: ${(props) =>
+  /* background: ${(props) =>
     props.alertDegree
       ? css`linear-gradient(
     -90deg,
     rgba(22, 255, 0, 0.8) 0%,
     rgba(0, 0, 0, 0) ${props.alertDegree}%
   )`
-      : css``};
+      : css``}; */
 `;
 
 export default Main;

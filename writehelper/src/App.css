@@ -44,8 +44,18 @@ html {
   align-items: center;
   width: 100%;
   height: 100%;
-  color: var(--text-color);
+}
+
+.App.dark {
   background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease-out;
+}
+
+.App.light {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease-out;
 }
 
 .main {
@@ -65,11 +75,34 @@ html {
   box-sizing: border-box;
   padding: 20px 36px;
   border: none;
-  color: var(--text-color);
   border-radius: 26px;
+}
+textarea::placeholder {
+  color: var(--text-color);
+}
+.text_box.light {
+  color: var(--text-color);
   background: var(--text-background-color);
   box-shadow: inset 5px 5px 5px var(--dark-shadow),
     inset -5px -5px 5px var(--light-shadow);
+  transition: background-color 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+.text_box.dark {
+  color: var(--text-color);
+  background: var(--text-background-color);
+  box-shadow: inset 5px 5px 5px var(--dark-shadow),
+    inset -5px -5px 5px var(--light-shadow);
+  transition: background-color 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+
+textarea.light::placeholder {
+  color: var(--text-color);
+  transition: color 0.4s ease-out;
+}
+
+textarea.dark::placeholder {
+  color: var(--text-color);
+  transition: color 0.4s ease-out;
 }
 
 .toggle_btn {
@@ -83,12 +116,34 @@ svg {
   fill: var(--text-color);
 }
 
-.export_btn {
+.toggle_btn.dark {
   color: var(--text-color);
-  border: none;
-  border-radius: 26px;
   background: var(--btn-color);
   box-shadow: 5px 5px 5px var(--dark-shadow), -5px -5px 5px var(--light-shadow);
+  transition: background-color 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+.toggle_btn.light {
+  color: var(--text-color);
+  background: var(--btn-color);
+  box-shadow: 5px 5px 5px var(--dark-shadow), -5px -5px 5px var(--light-shadow);
+  transition: background-color 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+
+.export_btn {
+  border: none;
+  border-radius: 26px;
+}
+.export_btn.dark {
+  color: var(--text-color);
+  background: var(--btn-color);
+  box-shadow: 5px 5px 5px var(--dark-shadow), -5px -5px 5px var(--light-shadow);
+  transition: background-color 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+.export_btn.light {
+  color: var(--text-color);
+  background: var(--btn-color);
+  box-shadow: 5px 5px 5px var(--dark-shadow), -5px -5px 5px var(--light-shadow);
+  transition: background-color 0.4s ease-out, box-shadow 0.4s ease-out;
 }
 
 .dialogWrapper {
