@@ -31,13 +31,13 @@ function Header({ theme, text, open, setOpen }) {
         </DialogBlock>
       )}
       <HeaderBlock className="header">
-        <div className="title">당신의 xx 쓰기</div>
+        <div className="title">당신의 숙제</div>
         <div className="util">
           <button
             className={"export_btn" + " " + theme}
             onClick={() => {
               onClick();
-              saveToFile(text, "dddd.txt", "text/plain");
+              saveToFile(text, "딩신의 숙제.txt", "text/plain");
             }}
           >
             내보내기
@@ -59,6 +59,9 @@ const DialogBlock = styled.div`
   background-color: rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
+  .dialog > button {
+    margin: 4px 0 0 0;
+  }
 `;
 
 const HeaderBlock = styled.header`
@@ -76,7 +79,6 @@ const HeaderBlock = styled.header`
     align-items: flex-end;
   }
   .export_btn {
-    cursor: pointer;
     line-height: 20px;
     padding: 8px 12px;
     margin-right: 8px;
