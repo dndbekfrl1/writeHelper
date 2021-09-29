@@ -5,7 +5,7 @@ import TextBox from "./TextBox";
 import Header from "./Header";
 import styled, { css } from "styled-components";
 
-let to = 5;
+let to = 6;
 let cur = 0;
 let timerId;
 
@@ -16,7 +16,8 @@ function Main() {
 
   const [open, setOpen] = useState(false); // dialog open
   const [text, setText] = useState(null); // textarea text
-  const [count, setCount] = useState(0); //count text
+  const [count, setCount] = useState(0); // text count
+  const [curSec, setCurSec] = useState(0);
   const [alertDegree, setAlertDegree] = useState(0); // alert backgrond color change
   const textarea = useRef(); // textarea
 
@@ -25,6 +26,7 @@ function Main() {
       //timer initial
       if (typeof timerId === "number") {
         cur = 0;
+        setCurSec(0);
         clearTimeout(timerId);
         timerId = undefined;
         setAlertDegree(cur);
@@ -33,12 +35,14 @@ function Main() {
         // if file is being saving, pause timer
         if (open) {
           cur = 0;
+          setCurSec(0);
         }
 
         if (cur < to) {
           if (typeof timerId === "number") {
             setAlertDegree(cur * 20);
             timerId = setTimeout(tick, 1000);
+            setCurSec(cur);
           }
         }
         cur += 1;
@@ -59,9 +63,14 @@ function Main() {
     };
   }, [text, open]);
 
+  let countDownDiv;
+
   return (
     <div className="main">
       <div className="wrapper">
+        {/* <CountDownBlock className={"countDown" + " " + curSec}>
+          {curSec}
+        </CountDownBlock> */}
         <Header theme={theme} text={text} open={open} setOpen={setOpen} />
         <TextBox
           theme={theme}
@@ -72,11 +81,17 @@ function Main() {
           setCount={setCount}
         />
       </div>
-      <AlertBlockLeft alertDegree={alertDegree} />
-      <AlertBlockRight alertDegree={alertDegree} />
     </div>
   );
 }
+
+const CountDownBlock = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  position: absolute;
+  right: 50%;
+`;
 
 const AlertBlockLeft = styled.div`
   position: absolute;
