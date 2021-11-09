@@ -1,6 +1,6 @@
 import react, { useContext } from "react";
 import styled from "styled-components";
-import { ThemeContext } from "../theme";
+import { AlertContext, ThemeContext } from "../theme";
 
 function ThemeChange() {
   const { theme, setTheme } = useContext(ThemeContext);

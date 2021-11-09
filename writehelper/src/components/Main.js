@@ -1,6 +1,6 @@
 import react from "react";
 import { useState, useRef, useEffect, useContext } from "react";
-import { ThemeContext } from "../theme";
+import { ThemeContext, AlertContext } from "../theme";
 import TextBox from "./TextBox";
 import Header from "./Header";
 import styled, { css } from "styled-components";
@@ -14,6 +14,8 @@ let timerId;
 function Main() {
   const { theme } = useContext(ThemeContext);
 
+  const { isAlert, setIsAlert } = useContext(AlertContext);
+
   const [open, setOpen] = useState(false); // dialog open
   const [text, setText] = useState(null); // textarea text
   const [count, setCount] = useState(0); // text count
@@ -23,15 +25,17 @@ function Main() {
 
   useEffect(() => {
     const setTimer = () => {
-      //timer initial
       if (typeof timerId === "number") {
+        //timer initial
         cur = 0;
         setCurSec(0);
         clearTimeout(timerId);
         timerId = undefined;
         setAlertDegree(cur);
+        setIsAlert("");
       }
       timerId = setTimeout(function tick() {
+        setIsAlert("alert");
         // if file is being saving, pause timer
         if (open) {
           cur = 0;
