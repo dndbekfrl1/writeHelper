@@ -5,7 +5,7 @@ import TextBox from "./TextBox";
 import Header from "./Header";
 import styled, { css } from "styled-components";
 
-let to = 6;
+let to = 31;
 let cur = 0;
 let timerId;
 
@@ -72,9 +72,6 @@ function Main() {
   return (
     <div className="main">
       <div className="wrapper">
-        {/* <CountDownBlock className={"countDown" + " " + curSec}>
-          {curSec}
-        </CountDownBlock> */}
         <Header theme={theme} text={text} open={open} setOpen={setOpen} />
         <TextBox
           theme={theme}
@@ -84,6 +81,7 @@ function Main() {
           count={count}
           setCount={setCount}
         />
+        <div>{count}</div>
       </div>
     </div>
   );

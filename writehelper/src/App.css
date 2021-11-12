@@ -79,23 +79,23 @@ button {
 /* set alert */
 .App.alert{
   background-color: var(--alert-background-color);
-  transition: background-color 5s ease-out;
+  transition: background-color 30s ease-out;
 }
 .App.alert>.main>.wrapper>div>.text_box{
   background: var(--alert-text-background-color);
   box-shadow: inset 5px 5px 5px var(--alert-dark-shadow),
     inset -5px -5px 5px var(--alert-light-shadow);
-  transition: background-color 5s ease-out,box-shadow 5s ease-out;;
+  transition: background-color 30s ease-out,box-shadow 30s ease-out;;
 }
 .App.alert>.main>.wrapper>header>.util>.toggle_btn{
   background: var(--alert-btn-color);
   box-shadow: 5px 5px 5px var(--alert-dark-shadow), -5px -5px 5px var(--alert-light-shadow);
-  transition: background-color 5s ease-out, box-shadow 5s ease-out;
+  transition: background-color 30s ease-out, box-shadow 30s ease-out;
 }
 .App.alert>.main>.wrapper>header>.util>.export_btn{
   background: var(--alert-btn-color);
   box-shadow: 5px 5px 5px var(--alert-dark-shadow), -5px -5px 5px var(--alert-light-shadow);
-  transition: background-color 5s ease-out, box-shadow 5s ease-out;
+  transition: background-color 30s ease-out, box-shadow 30s ease-out;
 }
 
 

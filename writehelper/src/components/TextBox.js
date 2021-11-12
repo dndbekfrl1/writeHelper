@@ -5,10 +5,8 @@ import styled from "styled-components";
 function TextBox({ theme, text, setText, textarea, count, setCount }) {
   const onChange = (e) => {
     setText(e.target.value);
-    setCount(count + 1);
+    setCount(textarea.current.value.length);
   };
-
-  const onKeyUp = () => {};
 
   return (
     <Block>
@@ -17,8 +15,7 @@ function TextBox({ theme, text, setText, textarea, count, setCount }) {
         ref={textarea}
         text={text}
         onChange={onChange}
-        placeholder="5초간 입력이 없으면 글이 사라집니다."
-        onKeyUp={onKeyUp}
+        placeholder="30초간 입력이 없으면 글이 사라집니다."
       ></TextAreaBlock>
     </Block>
   );
